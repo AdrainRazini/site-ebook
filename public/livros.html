@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Livro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mide.css">
+    <style>
+        #story-pages {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+h4, h5 {
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #6200ea;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #story-box {
+            display: none; /* Escondido por padrão */
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.5s ease-in-out;
+            overflow: hidden;
+        }
+
+        .story-content {
+            padding: 20px;
+            transform-origin: 0 50%;
+            transition: transform 0.5s ease-in-out;
+            background-color: white;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .opened {
+            transform: rotateY(0deg); /* Livro aberto */
+        }
+
+        .closed {
+            transform: rotateY(180deg); /* Livro fechado */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #6200ea;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6200ea;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #5a00d1; /* Cor ao passar o mouse */
+        }
+
+        .page {
+            display: none; /* Escondido por padrão */
+        }
+
+        .page.active {
+            display: block; /* Apenas a página ativa é mostrada */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Detalhes do Livro</h1>
+    </header>
+
+    <main id="book-details" role="main">
+        <!-- Detalhes do livro serão carregados aqui -->
+    </main>
+    
+    <a class="button" href="index.html">Voltar</a>
+
+    <footer>
+        <p>&copy; 2024 - Projeto eBook. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const livroId = params.get('id');
+
+            fetch('/data/livros.json')
+                .then(response => response.json())
+                .then(livros => {
+                    const livro = livros.find(l => l.id == livroId);
+                    const bookDetails = document.getElementById('book-details');
+
+                    if (livro) {
+                        bookDetails.innerHTML = `
+                            <h2>${livro.titulo}</h2>
+                            <p><strong>Autor:</strong> ${livro.autor}</p>
+                            <p><strong>Ano de Publicação:</strong> ${livro.anoPublicacao}</p>
+                            <p><strong>Gênero:</strong> ${livro.genero}</p>
+                            <p><strong>Editora:</strong> ${livro.editora}</p>
+                            <p><strong>Número de Páginas:</strong> ${livro.pagina}</p>
+                            <p><strong>Avaliação:</strong> ${livro.avaliacao} ⭐</p>
+                            <p><strong>Tags:</strong> ${livro.tags.join(', ')}</p>
+                            <p>${livro.descricao}</p>
+                            <img src="${livro.imagem}" alt="Capa do livro ${livro.titulo}">
+                            <button id="toggle-story" class="button">Ver História</button>
+                            <div id="story-box" role="region" aria-labelledby="story-title">
+                                <div class="story-content closed">
+                                    <h3 id="story-title">História</h3>
+                                    <div id="story-pages" class="story-pages"></div>
+                                    <div class="page-controls">
+                                        <button id="prev-page" class="button" disabled>Anterior</button>
+                                        <button id="next-page" class="button">Próxima</button>
+                                    </div>
+                                    <div id="end-message" style="display: none;">Você chegou ao final da história!</div>
+                                </div>
+                            </div>
+                        `;
+
+                        const storyPages = document.getElementById('story-pages');
+                        const storyText = livro.historia;
+                        const pageLimit = 1000; // Limite de caracteres por página
+                        const pages = [];
+
+                        // Dividir a história em páginas
+                        for (let i = 0; i < storyText.length; i += pageLimit) {
+                            pages.push(storyText.substring(i, i + pageLimit));
+                        }
+
+                        // Adicionar as páginas ao DOM
+                        pages.forEach((page, index) => {
+                            const pageDiv = document.createElement('div');
+                            pageDiv.classList.add('page');
+                            if (index === 0) pageDiv.classList.add('active'); // Ativar a primeira página
+                            pageDiv.innerHTML = `<p>${page}</p>`;
+                            storyPages.appendChild(pageDiv);
+                        });
+
+                        // Controle de navegação entre páginas
+                        let currentPage = 0;
+                        const prevButton = document.getElementById('prev-page');
+                        const nextButton = document.getElementById('next-page');
+                        const endMessage = document.getElementById('end-message');
+
+                        function updatePage() {
+                            const allPages = document.querySelectorAll('.page');
+                            allPages.forEach((p, index) => {
+                                p.classList.remove('active');
+                                if (index === currentPage) p.classList.add('active');
+                            });
+
+                            prevButton.disabled = currentPage === 0;
+                            nextButton.disabled = currentPage === pages.length - 1;
+                            endMessage.style.display = currentPage === pages.length - 1 ? 'block' : 'none'; // Mostrar mensagem no final
+                        }
+
+                        prevButton.addEventListener('click', () => {
+                            if (currentPage > 0) {
+                                currentPage--;
+                                updatePage();
+                            }
+                        });
+
+                        nextButton.addEventListener('click', () => {
+                            if (currentPage < pages.length - 1) {
+                                currentPage++;
+                                updatePage();
+                            }
+                        });
+
+                        const toggleButton = document.getElementById('toggle-story');
+                        const storyBox = document.getElementById('story-box');
+                        const storyContent = document.querySelector('.story-content');
+
+                        toggleButton.addEventListener('click', () => {
+                            storyBox.style.display = 'block';
+                            storyContent.classList.toggle('closed');
+                            storyContent.classList.toggle('opened');
+                        });
+                    } else {
+                        bookDetails.innerHTML = '<p>Livro não encontrado.</p>';
+                    }
+                });
+        });
+
+        // Supondo que 'livro' seja o objeto JSON que você obteve
+const storyContainer = document.getElementById('story-pages');
+storyContainer.innerHTML = ''; // Limpa conteúdo anterior
+
+// Adicionando Prefácio
+const prefacio = document.createElement('div');
+prefacio.innerHTML = `<h4>Prefácio</h4><p>${livro.conteudo.prefacio}</p>`;
+storyContainer.appendChild(prefacio);
+
+// Adicionando Capítulos
+livro.conteudo.capitulos.forEach(capitulo => {
+    const capituloDiv = document.createElement('div');
+    capituloDiv.innerHTML = `<h5>${capitulo.titulo} (Capítulo ${capitulo.numero})</h5><p>${capitulo.texto}</p>`;
+    storyContainer.appendChild(capituloDiv);
+});
+
+// Adicionando Conclusão
+const conclusao = document.createElement('div');
+conclusao.innerHTML = `<h4>Conclusão</h4><p>${livro.conteudo.conclusao}</p>`;
+storyContainer.appendChild(conclusao);
+
+// Adicionando Referências
+if (livro.conteudo.referencias.length > 0) {
+    const referenciasDiv = document.createElement('div');
+    referenciasDiv.innerHTML = '<h4>Referências</h4><ul>' + 
+        livro.conteudo.referencias.map(ref => `<li>${ref}</li>`).join('') + 
+        '</ul>';
+    storyContainer.appendChild(referenciasDiv);
+}
+
+    </script>
+</body>
+</html>

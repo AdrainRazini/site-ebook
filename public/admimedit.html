@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar eBook</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/mide.css">
+</head>
+<body>
+    <h1>Editar eBooks</h1>
+
+    <!-- Selecionar o livro a ser editado -->
+    <label for="select-livro">Selecione o livro:</label>
+    <select id="select-livro"></select>
+
+    <!-- Formulário para editar o livro -->
+    <form id="edit-livro-form">
+        <input type="hidden" id="id-livro" name="id-livro">
+
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required>
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required></textarea>
+
+        <label for="imagem">URL da Imagem:</label>
+        <input type="text" id="imagem" name="imagem" required>
+
+        <label for="historia">História:</label>
+        <textarea id="historia" name="historia" required></textarea>
+
+        <label for="anoPublicacao">Ano de Publicação:</label>
+        <input type="text" id="anoPublicacao" name="anoPublicacao" required>
+
+        <label for="genero">Gênero:</label>
+        <input type="text" id="genero" name="genero" required>
+
+        <label for="editora">Editora:</label>
+        <input type="text" id="editora" name="editora" required>
+
+        <label for="pagina">Número de Páginas:</label>
+        <input type="number" id="pagina" name="pagina" required>
+
+        <label for="avaliacao">Avaliação:</label>
+        <input type="number" step="0.1" id="avaliacao" name="avaliacao" required>
+
+        <label for="tags">Tags (separadas por vírgula):</label>
+        <input type="text" id="tags" name="tags">
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <script src="/js/edit-livro.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/mide.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .admin-section {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .admin-section h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .admin-section p, .admin-section ul {
+            margin: 5px 0;
+            color: #666;
+        }
+        .admin-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .admin-section ul li {
+            margin-bottom: 5px;
+            background: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between; /* Para alinhar o botão de deletar */
+        }
+        .admin-section input, .admin-section button {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        .admin-section button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .admin-section button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Painel Administrativo</h1>
+
+    <!-- Sessão de Gerenciamento de Livros -->
+    <div class="admin-section" id="livros-info">
+        <h2>Gerenciar Livros</h2>
+        <ul id="livros-list">
+            <!-- Lista de livros será inserida aqui -->
+        </ul>
+       
+    </div>
+
+    <!-- Sessão de Histórias -->
+    <div class="admin-section" id="historias-info">
+        <h2>Última História Lida</h2>
+        <p id="historia-conteudo">Nenhuma história carregada ainda.</p>
+    </div>
+
+    <!-- Sessão de Tempos de Leitura -->
+    <div class="admin-section" id="leitura-info">
+        <h2>Informações de Leitura</h2>
+        <ul id="leitura-list">
+            <!-- Informações de leitura serão exibidas aqui -->
+        </ul>
+    </div>
+
+    <script>
+        // Função para carregar livros do servidor
+        function carregarLivros() {
+            fetch('/data/livros.json')
+                .then(response => response.json())
+                .then(data => {
+                    const livrosList = document.getElementById('livros-list');
+                    livrosList.innerHTML = '';  // Limpa a lista antes de adicionar novos livros
+                    data.forEach(livro => {
+                        const li = document.createElement('li');
+                        li.textContent = `ID: ${livro.id} - Título: ${livro.titulo} - Autor: ${livro.autor}`;
+                        const btnDeletar = document.createElement('button');
+                        btnDeletar.textContent = 'Deletar';
+                        btnDeletar.onclick = () => deletarLivro(livro.id);
+                        li.appendChild(btnDeletar);
+                        livrosList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar os livros:', error));
+        }
+
+        // Função para adicionar um novo livro
+        function adicionarLivro() {
+            const titulo = document.getElementById('titulo').value;
+            const autor = document.getElementById('autor').value;
+            const descricao = document.getElementById('descricao').value;
+            const imagem = document.getElementById('imagem').value;
+            const historia = document.getElementById('historia').value;
+
+            const novoLivro = {
+                titulo: titulo,
+                autor: autor,
+                descricao: descricao,
+                imagem: imagem,
+                historia: historia
+            };
+
+            fetch('/data/livros.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novoLivro)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                carregarLivros(); // Atualiza a lista de livros
+            })
+            .catch(error => console.error('Erro ao adicionar o livro:', error));
+        }
+
+        // Função para deletar um livro
+        function deletarLivro(livroId) {
+            fetch(`/data/livros.json?id=${livroId}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                carregarLivros(); // Atualiza a lista de livros
+            })
+            .catch(error => console.error('Erro ao deletar o livro:', error));
+        }
+
+        // Função para carregar uma história
+        function carregarHistoria() {
+            fetch('/data/historias/historia1.txt')
+                .then(response => {
+                    if (!response.ok) throw new Error('História não encontrada');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('historia-conteudo').textContent = data;
+                })
+                .catch(error => {
+                    document.getElementById('historia-conteudo').textContent = error.message;
+                });
+        }
+
+        // Função para registrar e exibir o tempo de leitura
+        function carregarTemposDeLeitura() {
+            // Simula uma chamada para buscar os dados de leitura
+            const leituras = [
+                { usuario: 'João', livroId: '12345', tempoLeitura: 1200 },
+                { usuario: 'Maria', livroId: '54321', tempoLeitura: 900 }
+            ];
+
+            const leituraList = document.getElementById('leitura-list');
+            leituraList.innerHTML = '';
+            leituras.forEach(leitura => {
+                const li = document.createElement('li');
+                li.textContent = `Usuário: ${leitura.usuario} - Livro ID: ${leitura.livroId} - Tempo de Leitura: ${leitura.tempoLeitura} segundos`;
+                leituraList.appendChild(li);
+            });
+        }
+
+        // Carregando os dados ao iniciar a página
+        window.onload = () => {
+            carregarLivros();
+            carregarHistoria();
+            carregarTemposDeLeitura();
+        };
+    </script>
+  <a href="index.html">Voltar</a>
+</body>
+</html>

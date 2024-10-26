@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de eBooks</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mide.css">
+</head>
+<body>
+    <header>
+        <h1>Biblioteca de eBooks</h1>
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button> <!-- Botão do menu -->
+        <nav id="mobile-menu" class="hidden">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Adicionar Livro</a></li>
+            </ul>
+        </nav>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Buscar por título ou autor..." required>
+            <button type="submit">Buscar</button>
+        </form>
+    </header>
+
+    <main>
+        <h2 id="books-title" class="visually-hidden">Lista de Livros</h2>
+        <section id="books-list" aria-labelledby="books-title">
+            <!-- Os livros serão carregados aqui -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Projeto eBook. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+</body>
+</html>

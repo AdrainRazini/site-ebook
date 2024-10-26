@@ -1,0 +1,522 @@
+[
+  {
+    "id": "1728530851324",
+    "titulo": "Introdução à Programação",
+    "autor": "Adrian R.",
+    "descricao": "Uma visão geral da programação para iniciantes, cobrindo conceitos básicos e fundamentais.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Este livro foi criado para ajudar os iniciantes a entender os fundamentos da programação. Com exemplos práticos e explicações claras, você aprenderá a pensar como um programador e a resolver problemas de forma eficaz. A obra aborda conceitos essenciais, como variáveis, tipos de dados, estruturas de controle e funções. Os leitores serão guiados por exercícios práticos que os ajudarão a construir projetos simples, consolidando o aprendizado. Além disso, o autor compartilha dicas valiosas para desenvolver uma mentalidade de programador, incentivando a curiosidade e a experimentação. Com uma linguagem acessível e uma abordagem passo a passo, 'Introdução à Programação' é o ponto de partida ideal para quem deseja se aventurar no mundo da tecnologia e da programação. Este livro é uma ferramenta indispensável para qualquer pessoa que busca iniciar sua jornada na programação, oferecendo não apenas conhecimentos técnicos, mas também uma base sólida para o aprendizado contínuo na área de tecnologia.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "iniciantes",
+      "tecnologia",
+      "desenvolvimento"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851325",
+    "titulo": "Desenvolva Sua Mente",
+    "autor": "Juliana M.",
+    "descricao": "Um guia prático para aprimorar suas habilidades mentais e emocionais.",
+    "imagem": "https://img.freepik.com/vetores-premium/mulher-de-pixel-art-mentalizando_150088-776.jpg?w=740",
+    "historia": "Este livro oferece técnicas e exercícios que ajudam o leitor a melhorar sua concentração, autoconfiança e inteligência emocional. Juliana M. compartilha métodos baseados em pesquisas psicológicas e experiências pessoais, abordando temas como a importância do autocuidado e a prática da gratidão. Ao longo de sua leitura, o leitor encontrará histórias inspiradoras e ferramentas práticas que podem ser aplicadas no dia a dia, ajudando a construir uma mentalidade mais forte e resiliente.",
+    "anoPublicacao": "2024",
+    "genero": "Autoajuda",
+    "editora": "Mindset Press",
+    "pagina": "250",
+    "avaliacao": "4.8",
+    "tags": [
+      "desenvolvimento pessoal",
+      "autoajuda",
+      "mentalidade",
+      "crescimento"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851326",
+    "titulo": "Além do Horizonte",
+    "autor": "Carlos N.",
+    "descricao": "Uma jornada épica através do espaço e do tempo.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-viajando-no-espaco_150088-777.jpg?w=740",
+    "historia": "Neste romance de ficção científica, o protagonista, um jovem cientista, descobre uma tecnologia que permite viajar através de dimensões paralelas. À medida que explora novos mundos, ele se depara com civilizações alienígenas, confronta dilemas éticos e descobre a verdadeira natureza do universo. 'Além do Horizonte' é uma história que desafia os limites da imaginação e provoca reflexões profundas sobre a vida, a morte e o que significa ser humano.",
+    "anoPublicacao": "2024",
+    "genero": "Ficção Científica",
+    "editora": "Galáxia Books",
+    "pagina": "320",
+    "avaliacao": "4.7",
+    "tags": [
+      "ficção científica",
+      "aventura",
+      "universo",
+      "dimensionais"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851327",
+    "titulo": "Cozinha Criativa",
+    "autor": "Fernanda L.",
+    "descricao": "Receitas inovadoras para surpreender na cozinha.",
+    "imagem": "https://img.freepik.com/vetores-premium/mulher-de-pixel-art-cozinhando_150088-778.jpg?w=740",
+    "historia": "Cozinha Criativa é um convite à experimentação culinária, onde Fernanda L. compartilha suas receitas favoritas que combinam sabores do mundo inteiro. Cada capítulo traz uma temática, desde pratos tradicionais até criações contemporâneas que refletem a diversidade gastronômica. O livro inclui dicas de apresentação, harmonização de sabores e um guia para a escolha de ingredientes frescos. Ideal para quem deseja aprimorar suas habilidades na cozinha e impressionar amigos e familiares com pratos deliciosos e únicos.",
+    "anoPublicacao": "2024",
+    "genero": "Culinária",
+    "editora": "Sabores do Mundo",
+    "pagina": "180",
+    "avaliacao": "4.9",
+    "tags": [
+      "culinária",
+      "receitas",
+      "gastronomia",
+      "sabores"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851328",
+    "titulo": "Ecos do Passado",
+    "autor": "Roberto H.",
+    "descricao": "Uma análise dos eventos que moldaram a história mundial.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-estudando-historia_150088-779.jpg?w=740",
+    "historia": "Neste livro, Roberto H. investiga os principais eventos que moldaram a história da humanidade, desde as civilizações antigas até os dias atuais. Ele analisa como guerras, revoluções e movimentos sociais influenciaram a sociedade moderna. Com uma narrativa envolvente, 'Ecos do Passado' traz uma nova perspectiva sobre a história, explorando como o passado continua a impactar nossas vidas hoje. O autor utiliza uma combinação de pesquisa acadêmica e relatos pessoais, tornando a leitura acessível e interessante para todos.",
+    "anoPublicacao": "2024",
+    "genero": "História",
+    "editora": "História Viva",
+    "pagina": "300",
+    "avaliacao": "4.5",
+    "tags": [
+      "história",
+      "eventos",
+      "análise",
+      "cultura"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851329",
+    "titulo": "Riqueza Sustentável",
+    "autor": "Lucas A.",
+    "descricao": "Um guia prático para alcançar a liberdade financeira.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-investindo_150088-780.jpg?w=740",
+    "historia": "Riqueza Sustentável é um guia que ensina como gerenciar suas finanças de forma inteligente e consciente. Lucas A. compartilha estratégias para economizar, investir e planejar a aposentadoria, enfatizando a importância de tomar decisões financeiras informadas. Com exemplos práticos e ferramentas úteis, o livro capacita os leitores a alcançarem seus objetivos financeiros e a construírem um futuro mais seguro. Além disso, aborda o conceito de sustentabilidade financeira, incentivando um estilo de vida que prioriza tanto o bem-estar pessoal quanto o social.",
+    "anoPublicacao": "2024",
+    "genero": "Finanças Pessoais",
+    "editora": "Financeiras Press",
+    "pagina": "220",
+    "avaliacao": "4.6",
+    "tags": [
+      "finanças",
+      "investimentos",
+      "planejamento",
+      "liberdade financeira"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851325",
+    "titulo": "A Jornada do Aprendizado",
+    "autor": "Adrian R.",
+    "descricao": "Um grupo de jovens descobre a programação, transformando suas dúvidas em habilidades.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Em um mundo cada vez mais digital, um grupo de jovens se reúne em uma sala de aula para descobrir o fascinante universo da programação. O livro 'Introdução à Programação' se torna o seu guia. À medida que exploram conceitos como variáveis e funções, eles começam a resolver problemas reais. Cada capítulo traz novos desafios, mas também novas conquistas, transformando suas dúvidas em habilidades. Essa jornada não é apenas sobre códigos, mas sobre a capacidade de pensar criticamente e criar soluções inovadoras.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "iniciantes",
+      "tecnologia",
+      "desenvolvimento"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851326",
+    "titulo": "O Despertar da Curiosidade",
+    "autor": "Adrian R.",
+    "descricao": "Alice descobre sua paixão pela programação ao ler o livro.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Alice, uma estudante do ensino médio, sempre se sentiu intimidada pela programação. Quando seu professor recomenda 'Introdução à Programação', ela decide dar uma chance. Para sua surpresa, as explicações claras e os exemplos práticos ajudam a dissipar suas inseguranças. Ela aprende a criar seu primeiro programa e descobre uma paixão que nunca soube que tinha. O livro não apenas a ensina a programar, mas também a inspira a buscar novas oportunidades na área de tecnologia.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "iniciantes",
+      "tecnologia",
+      "desenvolvimento"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851327",
+    "titulo": "Desvendando o Código",
+    "autor": "Adrian R.",
+    "descricao": "Lucas transforma sua paixão por jogos em programação.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Lucas sempre foi fascinado por jogos de computador, mas nunca pensou que poderia criar um. Ao ler 'Introdução à Programação', ele se depara com o mundo da lógica por trás dos jogos. Com cada capítulo, ele aprende a pensar como um programador e começa a desenvolver pequenos projetos. O livro se torna seu aliado na jornada de transformação de ideias em realidade, mostrando que qualquer um pode ser um criador no mundo digital.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "iniciantes",
+      "tecnologia",
+      "desenvolvimento"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851328",
+    "titulo": "O Grupo de Estudo",
+    "autor": "Adrian R.",
+    "descricao": "Um grupo de amigos aprende programação juntos.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Um grupo de amigos decide formar um clube de programação para estudar juntos. Eles escolhem 'Introdução à Programação' como seu livro-base. Com encontros semanais, cada um apresenta um tópico diferente. Juntos, eles criam um ambiente de apoio, onde trocam ideias e resolvem problemas em equipe. As lições do livro não apenas fortalecem suas habilidades técnicas, mas também criam laços de amizade duradouros, mostrando que aprender é muito mais divertido em grupo.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "iniciantes",
+      "tecnologia",
+      "desenvolvimento"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851329",
+    "titulo": "O Futuro nas Mãos",
+    "autor": "Adrian R.",
+    "descricao": "Maria descobre seu caminho na tecnologia através da programação.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Maria, uma estudante universitária, se vê em uma encruzilhada ao escolher sua carreira. Ao folhear 'Introdução à Programação', ela se dá conta de que a programação pode ser a chave para um futuro brilhante. O livro não só fornece a base técnica que ela precisa, mas também inspira confiança em suas capacidades. Maria logo percebe que, com cada linha de código, está moldando seu próprio futuro na área de tecnologia, pronto para enfrentar os desafios do mercado de trabalho.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "iniciantes",
+      "tecnologia",
+      "desenvolvimento"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851330",
+    "titulo": "A Revolução da Programação",
+    "autor": "Adrian R.",
+    "descricao": "Como a programação transforma vidas e carreiras.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Quando um jovem chamado Tiago descobre 'Introdução à Programação', ele não imagina que esse seria o início de uma revolução em sua vida. O livro o ensina não apenas a programar, mas também a pensar de forma crítica e criativa. Com cada projeto que desenvolve, Tiago se vê mais perto de seus sonhos de trabalhar na indústria de tecnologia. Ele compartilha suas experiências em redes sociais, inspirando outros jovens a se juntarem a essa revolução da programação.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "transformação",
+      "tecnologia",
+      "inspirador"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851331",
+    "titulo": "Os Pequenos Programadores",
+    "autor": "Adrian R.",
+    "descricao": "Uma turma do ensino fundamental aprende a programar.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Em uma escola primária, um professor decide ensinar programação para seus alunos usando 'Introdução à Programação'. As crianças, inicialmente relutantes, logo se encantam ao criar seus próprios jogos e animações. O livro se torna uma fonte de diversão e aprendizado, mostrando que a programação pode ser acessível a todos, independentemente da idade. As aulas se transformam em um espaço de criatividade, onde cada aluno tem a chance de brilhar.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "educação",
+      "criatividade",
+      "jovens"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851332",
+    "titulo": "Programação para Todos",
+    "autor": "Adrian R.",
+    "descricao": "Uma mulher redescobre sua carreira através da programação.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Carla sempre trabalhou em áreas administrativas, mas sentia que havia algo mais para ela. Ao ler 'Introdução à Programação', ela percebe que a programação pode ser a chave para uma nova carreira. O livro oferece uma abordagem acessível, e com cada capítulo, Carla ganha confiança para mudar de vida. A programação se torna não apenas uma habilidade, mas uma paixão que a leva a novas oportunidades e realizações.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "carreira",
+      "transformação",
+      "mulheres na tecnologia"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851333",
+    "titulo": "Desafio e Superação",
+    "autor": "Adrian R.",
+    "descricao": "Um jovem enfrenta seus medos e aprende programação.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Gustavo sempre teve medo de matemática, acreditando que a programação não era para ele. Quando seu amigo lhe apresenta 'Introdução à Programação', ele decide dar uma chance. Cada capítulo representa um desafio, mas também uma vitória. Gustavo supera seus medos e descobre que a programação é, na verdade, um campo onde ele pode se destacar. O livro se torna um símbolo de superação e autoconfiança em sua jornada.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "superação",
+      "confiança",
+      "jovens"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851334",
+    "titulo": "Uma Nova Perspectiva",
+    "autor": "Adrian R.",
+    "descricao": "Um professor transforma suas aulas com a programação.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Um professor de ciências busca formas inovadoras de engajar seus alunos e encontra 'Introdução à Programação'. Ele decide integrar a programação em suas aulas, mostrando aos alunos como a ciência e a tecnologia andam de mãos dadas. O livro não só o ajuda a ensinar conceitos de programação, mas também a criar um ambiente de aprendizado interativo. Os alunos ficam fascinados, e suas notas melhoram significativamente, tornando-se mais apaixonados por aprender.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "educação",
+      "inovação",
+      "ensino"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851335",
+    "titulo": "Programando Sonhos",
+    "autor": "Adrian R.",
+    "descricao": "Uma adolescente aprende a programar para criar seu próprio jogo.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Sofia sempre sonhou em criar seu próprio jogo de videogame. Ao encontrar 'Introdução à Programação', ela decide que esse é o momento de transformar seu sonho em realidade. O livro a guia através de cada passo, desde a lógica básica até a criação de gráficos. Com a ajuda de tutoriais e exercícios práticos, Sofia aprende a programar e, com isso, a realizar suas ideias. O processo de criação não só a ensina sobre tecnologia, mas também sobre perseverança e criatividade.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "jogos",
+      "tecnologia",
+      "criatividade"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851336",
+    "titulo": "Entre Linhas de Código",
+    "autor": "Adrian R.",
+    "descricao": "Como um grupo de jovens desenvolve um aplicativo juntos.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Um grupo de amigos decide desenvolver um aplicativo que ajude as pessoas a se manterem organizadas. Com 'Introdução à Programação' como seu guia, eles se reúnem para discutir ideias e escrever código. O livro fornece a estrutura e os conceitos que precisam para iniciar o projeto, e cada um dos amigos contribui com suas habilidades únicas. Juntos, eles enfrentam desafios, aprendem com os erros e celebram suas vitórias, criando não apenas um aplicativo, mas também memórias inesquecíveis.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "aplicativos",
+      "trabalho em equipe",
+      "tecnologia"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851337",
+    "titulo": "O Poder da Criatividade",
+    "autor": "Adrian R.",
+    "descricao": "Um artista descobre a programação e cria projetos incríveis.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Lucas, um artista visual, sempre quis integrar a arte com tecnologia. Ao ler 'Introdução à Programação', ele percebe que a programação pode ser a ponte entre suas duas paixões. O livro fornece as ferramentas necessárias para criar projetos interativos e dinâmicos. Lucas se lança em um novo mundo de possibilidades, onde combina cores, formas e códigos, criando experiências artísticas que surpreendem e encantam o público.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "arte",
+      "criatividade",
+      "tecnologia"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851338",
+    "titulo": "Do Zero ao Heroi",
+    "autor": "Adrian R.",
+    "descricao": "Um jovem aprende programação e encontra um novo futuro.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Felipe sempre teve dificuldades na escola, mas ao encontrar 'Introdução à Programação', tudo muda. Ele começa a estudar e se dedica a aprender programação. O livro é seu aliado, e com cada capítulo, Felipe ganha confiança e habilidades. Sua jornada de aprendizado não só transforma seu desempenho acadêmico, mas também lhe abre portas para um futuro brilhante na tecnologia. O que antes parecia impossível se torna realidade: Felipe se torna um verdadeiro herói em sua própria história.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "superação",
+      "futuro",
+      "tecnologia"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851339",
+    "titulo": "Mentes Brilhantes",
+    "autor": "Adrian R.",
+    "descricao": "Uma competição de programação desafia alunos a mostrar suas habilidades.",
+    "imagem": "https://img.freepik.com/vetores-premium/homem-de-pixel-art-programando_150088-775.jpg?w=740",
+    "historia": "Em uma escola, um concurso de programação é anunciado, e todos os alunos são convidados a participar. Com 'Introdução à Programação' em mãos, os alunos se preparam para o desafio. O livro se torna uma fonte de inspiração e aprendizado, ajudando-os a criar projetos inovadores. Durante a competição, os alunos descobrem a importância do trabalho em equipe e da colaboração. No final, todos são vencedores, pois aprenderam e cresceram juntos.",
+    "anoPublicacao": "2024",
+    "genero": "Educação/Programação",
+    "editora": "Tech Books",
+    "pagina": "200",
+    "avaliacao": "5",
+    "tags": [
+      "programação",
+      "competição",
+      "trabalho em equipe",
+      "tecnologia"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851340",
+    "titulo": "A Viagem Espacial",
+    "autor": "Adrian R.",
+    "descricao": "Uma aventura intergaláctica em busca de novas fronteiras.",
+    "imagem": "https://img.freepik.com/free-vector/spaceship-illustration_23-2148474538.jpg?w=740",
+    "historia": "Em um futuro distante, a humanidade finalmente consegue viajar entre estrelas. Um grupo de astronautas, liderado pela comandante Elena, parte em uma missão para explorar um planeta recém-descoberto. No entanto, eles logo descobrem que não estão sozinhos. Ao se depararem com uma civilização alienígena avançada, eles precisam aprender a se comunicar e encontrar um terreno comum para garantir a paz entre as espécies. Essa aventura revela não apenas os mistérios do universo, mas também as profundezas da amizade e da compreensão.",
+    "anoPublicacao": "2024",
+    "genero": "Ficção Científica/Aventura",
+    "editora": "Galactic Reads",
+    "pagina": "320",
+    "avaliacao": "5",
+    "tags": [
+      "espaço",
+      "aventura",
+      "alienígenas",
+      "exploração"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851341",
+    "titulo": "Mistérios do Oceano",
+    "autor": "Adrian R.",
+    "descricao": "Uma expedição revela segredos escondidos nas profundezas do mar.",
+    "imagem": "https://img.freepik.com/free-vector/ocean-landscape-illustration_1308-41821.jpg?w=740",
+    "historia": "Um grupo de cientistas decide explorar o fundo do mar em busca de novas espécies e ecossistemas. Durante sua expedição, eles descobrem uma cidade submersa antiga, repleta de artefatos que contam a história de uma civilização perdida. À medida que investigam, os cientistas enfrentam desafios perigosos, desde criaturas marinhas desconhecidas até armadilhas deixadas para trás. Esta jornada não só revela os mistérios do oceano, mas também nos ensina sobre a importância de preservar o nosso planeta.",
+    "anoPublicacao": "2024",
+    "genero": "Aventura/Exploração",
+    "editora": "Oceanic Press",
+    "pagina": "250",
+    "avaliacao": "5",
+    "tags": [
+      "oceano",
+      "exploração",
+      "mistérios",
+      "ciência"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851342",
+    "titulo": "O Enigma da Pirâmide",
+    "autor": "Adrian R.",
+    "descricao": "Um arqueólogo desvenda os segredos de uma antiga pirâmide egípcia.",
+    "imagem": "https://img.freepik.com/free-vector/pyramid-illustration_1308-42039.jpg?w=740",
+    "historia": "Durante uma escavação no Egito, a arqueóloga Sofia descobre uma pirâmide esquecida. Ao entrar, ela se depara com inscrições enigmáticas e armadilhas mortais. Com a ajuda de um linguista, Sofia tenta decifrar os mistérios que cercam o local, revelando segredos que podem mudar o entendimento da história antiga. Cada passo a leva a novas descobertas, mas também a perigos que testarão sua coragem e inteligência. A história é uma emocionante mistura de aventura, suspense e história.",
+    "anoPublicacao": "2024",
+    "genero": "Aventura/Suspense",
+    "editora": "History Press",
+    "pagina": "300",
+    "avaliacao": "5",
+    "tags": [
+      "arqueologia",
+      "Egito",
+      "aventura",
+      "mistério"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851343",
+    "titulo": "A Revolta dos Animais",
+    "autor": "Adrian R.",
+    "descricao": "Os animais da fazenda se unem para lutar por seus direitos.",
+    "imagem": "https://img.freepik.com/free-vector/farm-animals_1308-42094.jpg?w=740",
+    "historia": "Em uma fazenda, os animais estão cansados da exploração e do trabalho forçado. Liderados pelo porquinho chamado Tobias, eles planejam uma revolta para conquistar a liberdade. Ao longo do caminho, eles enfrentam desafios e descobrem a importância da união e da coragem. A história é uma fábula moderna que toca em temas como justiça e igualdade, mostrando que até os menores podem fazer a diferença.",
+    "anoPublicacao": "2024",
+    "genero": "Fábula/Aventura",
+    "editora": "Animal Tales",
+    "pagina": "150",
+    "avaliacao": "5",
+    "tags": [
+      "animais",
+      "aventura",
+      "liberdade",
+      "justiça"
+    ],
+    "dataAdicao": "2024-10-10"
+  },
+  {
+    "id": "1728530851344",
+    "titulo": "Amores Imortais",
+    "autor": "Adrian R.",
+    "descricao": "Uma história de amor que desafia o tempo e a morte.",
+    "imagem": "https://img.freepik.com/free-vector/love-concept-illustration_1308-42203.jpg?w=740",
+    "historia": "Em uma pequena vila, dois jovens apaixonados, Elena e Miguel, encontram uma antiga lenda que fala de amores imortais. Ao seguir os passos da lenda, eles se deparam com forças místicas que testam seu amor e determinação. Entre desafios e provações, eles devem lutar contra o tempo e a morte para ficarem juntos. A história é uma celebração do amor verdadeiro e da força que ele pode ter diante das adversidades.",
+    "anoPublicacao": "2024",
+    "genero": "Romance/Fantasia",
+    "editora": "Heart Press",
+    "pagina": "280",
+    "avaliacao": "5",
+    "tags": [
+      "amor",
+      "fantasia",
+      "romance",
+      "misticismo"
+    ],
+    "dataAdicao": "2024-10-10"
+  }
+]
