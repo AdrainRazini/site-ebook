@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Animação de aparecer
                 setTimeout(() => {
-                    bookDiv.style.transition = 'opacity 0.5s ease-in';
+                    bookDiv.style.transition = 'opacity 0.1s ease-in';
                     bookDiv.style.opacity = 1;
                 }, 10);
 
