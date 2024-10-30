@@ -150,138 +150,102 @@ p {
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const livroId = params.get('id');
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const livroId = params.get('id');
 
-            fetch('/data/livros.json')
-                .then(response => response.json())
-                .then(livros => {
-                    const livro = livros.find(l => l.id == livroId);
-                    const bookDetails = document.getElementById('book-details');
+        fetch('/data/livros.json')
+            .then(response => response.json())
+            .then(livros => {
+                const livro = livros.find(l => l.id == livroId);
+                const bookDetails = document.getElementById('book-details');
 
-                    if (livro) {
-                        bookDetails.innerHTML = `
-                            <h2>${livro.titulo}</h2>
-                            <p><strong>Autor:</strong> ${livro.autor}</p>
-                            <p><strong>Ano de Publicação:</strong> ${livro.anoPublicacao}</p>
-                            <p><strong>Gênero:</strong> ${livro.genero}</p>
-                            <p><strong>Editora:</strong> ${livro.editora}</p>
-                            <p><strong>Número de Páginas:</strong> ${livro.pagina}</p>
-                            <p><strong>Avaliação:</strong> ${livro.avaliacao} ⭐</p>
-                            <p><strong>Tags:</strong> ${livro.tags.join(', ')}</p>
-                            <p>${livro.descricao}</p>
-                            <img src="${livro.imagem}" alt="Capa do livro ${livro.titulo}">
-                            <button id="toggle-story" class="button">Ver História</button>
-                            <div id="story-box" role="region" aria-labelledby="story-title">
-                                <div class="story-content closed">
-                                    <h3 id="story-title">História</h3>
-                                    <div id="story-pages" class="story-pages"></div>
-                                    <div class="page-controls">
-                                        <button id="prev-page" class="button" disabled>Anterior</button>
-                                        <button id="next-page" class="button">Próxima</button>
-                                    </div>
-                                    <div id="end-message" style="display: none;">Você chegou ao final da história!</div>
+                if (livro) {
+                    bookDetails.innerHTML = `
+                        <h2>${livro.titulo}</h2>
+                        <p><strong>Autor:</strong> ${livro.autor}</p>
+                        <p><strong>Ano de Publicação:</strong> ${livro.anoPublicacao}</p>
+                        <p><strong>Gênero:</strong> ${livro.genero}</p>
+                        <p><strong>Editora:</strong> ${livro.editora}</p>
+                        <p><strong>Número de Páginas:</strong> ${livro.pagina}</p>
+                        <p><strong>Avaliação:</strong> ${livro.avaliacao} ⭐</p>
+                        <p><strong>Tags:</strong> ${livro.tags.join(', ')}</p>
+                        <p>${livro.descricao}</p>
+                        <img src="${livro.imagem}" alt="Capa do livro ${livro.titulo}">
+                        <a href="historia.html?id=${livroId}" class="button">Ver História em uma Nova Página</a>
+                        <button id="toggle-story" class="button">Ver História</button>
+                        <div id="story-box" role="region" aria-labelledby="story-title">
+                            <div class="story-content closed">
+                                <h3 id="story-title">História</h3>
+                                <div id="story-pages" class="story-pages"></div>
+                                <div class="page-controls">
+                                    <button id="prev-page" class="button" disabled>Anterior</button>
+                                    <button id="next-page" class="button">Próxima</button>
                                 </div>
+                                <div id="end-message" style="display: none;">Você chegou ao final da história!</div>
                             </div>
-                        `;
+                        </div>
+                    `;
 
-                        const storyPages = document.getElementById('story-pages');
-                        const storyText = livro.historia;
-                        const pageLimit = 1000; // Limite de caracteres por página
-                        const pages = [];
+                    const storyPages = document.getElementById('story-pages');
+                    const storyContent = livro.historia;
+                    const pages = Array.isArray(storyContent) ? storyContent : [storyContent];
 
-                        // Dividir a história em páginas
-                        for (let i = 0; i < storyText.length; i += pageLimit) {
-                            pages.push(storyText.substring(i, i + pageLimit));
-                        }
+                    pages.forEach((pageText, index) => {
+                        const pageDiv = document.createElement('div');
+                        pageDiv.classList.add('page');
+                        if (index === 0) pageDiv.classList.add('active');
+                        pageDiv.innerHTML = `<p>${pageText}</p>`;
+                        storyPages.appendChild(pageDiv);
+                    });
 
-                        // Adicionar as páginas ao DOM
-                        pages.forEach((page, index) => {
-                            const pageDiv = document.createElement('div');
-                            pageDiv.classList.add('page');
-                            if (index === 0) pageDiv.classList.add('active'); // Ativar a primeira página
-                            pageDiv.innerHTML = `<p>${page}</p>`;
-                            storyPages.appendChild(pageDiv);
+                    let currentPage = 0;
+                    const prevButton = document.getElementById('prev-page');
+                    const nextButton = document.getElementById('next-page');
+                    const endMessage = document.getElementById('end-message');
+
+                    function updatePage() {
+                        const allPages = document.querySelectorAll('.page');
+                        allPages.forEach((p, index) => {
+                            p.classList.toggle('active', index === currentPage);
                         });
 
-                        // Controle de navegação entre páginas
-                        let currentPage = 0;
-                        const prevButton = document.getElementById('prev-page');
-                        const nextButton = document.getElementById('next-page');
-                        const endMessage = document.getElementById('end-message');
-
-                        function updatePage() {
-                            const allPages = document.querySelectorAll('.page');
-                            allPages.forEach((p, index) => {
-                                p.classList.remove('active');
-                                if (index === currentPage) p.classList.add('active');
-                            });
-
-                            prevButton.disabled = currentPage === 0;
-                            nextButton.disabled = currentPage === pages.length - 1;
-                            endMessage.style.display = currentPage === pages.length - 1 ? 'block' : 'none'; // Mostrar mensagem no final
-                        }
-
-                        prevButton.addEventListener('click', () => {
-                            if (currentPage > 0) {
-                                currentPage--;
-                                updatePage();
-                            }
-                        });
-
-                        nextButton.addEventListener('click', () => {
-                            if (currentPage < pages.length - 1) {
-                                currentPage++;
-                                updatePage();
-                            }
-                        });
-
-                        const toggleButton = document.getElementById('toggle-story');
-                        const storyBox = document.getElementById('story-box');
-                        const storyContent = document.querySelector('.story-content');
-
-                        toggleButton.addEventListener('click', () => {
-                            storyBox.style.display = 'block';
-                            storyContent.classList.toggle('closed');
-                            storyContent.classList.toggle('opened');
-                        });
-                    } else {
-                        bookDetails.innerHTML = '<p>Livro não encontrado.</p>';
+                        prevButton.disabled = currentPage === 0;
+                        nextButton.disabled = currentPage === pages.length - 1;
+                        endMessage.style.display = currentPage === pages.length - 1 ? 'block' : 'none';
                     }
-                });
-        });
 
-        // Supondo que 'livro' seja o objeto JSON que você obteve
-const storyContainer = document.getElementById('story-pages');
-storyContainer.innerHTML = ''; // Limpa conteúdo anterior
+                    prevButton.addEventListener('click', () => {
+                        if (currentPage > 0) {
+                            currentPage--;
+                            updatePage();
+                        }
+                    });
 
-// Adicionando Prefácio
-const prefacio = document.createElement('div');
-prefacio.innerHTML = `<h4>Prefácio</h4><p>${livro.conteudo.prefacio}</p>`;
-storyContainer.appendChild(prefacio);
+                    nextButton.addEventListener('click', () => {
+                        if (currentPage < pages.length - 1) {
+                            currentPage++;
+                            updatePage();
+                        }
+                    });
 
-// Adicionando Capítulos
-livro.conteudo.capitulos.forEach(capitulo => {
-    const capituloDiv = document.createElement('div');
-    capituloDiv.innerHTML = `<h5>${capitulo.titulo} (Capítulo ${capitulo.numero})</h5><p>${capitulo.texto}</p>`;
-    storyContainer.appendChild(capituloDiv);
-});
+                    const toggleButton = document.getElementById('toggle-story');
+                    const storyBox = document.getElementById('story-box');
+                    const storyContentDiv = document.querySelector('.story-content');
 
-// Adicionando Conclusão
-const conclusao = document.createElement('div');
-conclusao.innerHTML = `<h4>Conclusão</h4><p>${livro.conteudo.conclusao}</p>`;
-storyContainer.appendChild(conclusao);
+                    toggleButton.addEventListener('click', () => {
+                        storyBox.style.display = storyBox.style.display === 'block' ? 'none' : 'block';
+                        storyContentDiv.classList.toggle('closed');
+                        storyContentDiv.classList.toggle('opened');
+                    });
 
-// Adicionando Referências
-if (livro.conteudo.referencias.length > 0) {
-    const referenciasDiv = document.createElement('div');
-    referenciasDiv.innerHTML = '<h4>Referências</h4><ul>' + 
-        livro.conteudo.referencias.map(ref => `<li>${ref}</li>`).join('') + 
-        '</ul>';
-    storyContainer.appendChild(referenciasDiv);
-}
+                    updatePage(); // Chama updatePage para garantir que o estado inicial esteja correto
+                } else {
+                    bookDetails.innerHTML = '<p>Livro não encontrado.</p>';
+                }
+            });
+    });
+</script>
 
-    </script>
 </body>
 </html>
