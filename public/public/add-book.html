@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Livro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mide.css">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #00ea00;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            grid-column: span 2; /* Faz o botão ocupar as duas colunas */
+            padding: 10px;
+            background-color: #1eff00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #026d14; /* Cor ao passar o mouse */
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: green;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+
+        /* Estilos para exibição do botão de cancelamento */
+        .cancel-button {
+            grid-column: span 2;
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cancel-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Adicionar Livro</h1>
+    </header>
+
+    <main>
+        <form id="add-book-form">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" required>
+            </div>
+            <div>
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" required>
+            </div>
+            <div>
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" rows="3" required></textarea>
+            </div>
+            <div>
+                <label for="imagem">URL da Imagem:</label>
+                <input type="url" id="imagem" required>
+            </div>
+            <div>
+                <label for="historia">História:</label>
+                <textarea id="historia" rows="5" required></textarea>
+            </div>
+            <div>
+                <label for="anoPublicacao">Ano de Publicação:</label>
+                <input type="number" id="anoPublicacao" min="1900" max="2100" required>
+            </div>
+            <div>
+                <label for="genero">Gênero:</label>
+                <input type="text" id="genero" required>
+            </div>
+            <div>
+                <label for="editora">Editora:</label>
+                <input type="text" id="editora" required>
+            </div>
+            <div>
+                <label for="pagina">Número de Páginas:</label>
+                <input type="number" id="pagina" readonly>
+            </div>
+            <div>
+                <label for="avaliacao">Avaliação (1-5):</label>
+                <input type="number" id="avaliacao" min="1" max="5" required>
+            </div>
+            <div>
+                <label for="tags">Tags (separadas por vírgula):</label>
+                <input type="text" id="tags">
+            </div>
+            <button type="submit">Adicionar Livro</button>
+            <button type="button" class="cancel-button" id="cancel-button">Cancelar</button>
+        </form>
+        <div class="message" id="success-message" style="display:none;"></div>
+        <div class="error" id="error-message" style="display:none;"></div>
+    </main>
+
+    <script>
+        // Função para calcular o número de páginas
+        function calcularPaginas(historia) {
+            const palavrasPorPagina = 300; // Exemplo de 300 palavras por página
+            const palavras = historia.trim().split(/\s+/).length;
+            return Math.ceil(palavras / palavrasPorPagina);
+        }
+
+        // Atualizar o número de páginas ao mudar o conteúdo da história
+        document.getElementById('historia').addEventListener('input', function() {
+            const historia = this.value;
+            document.getElementById('pagina').value = calcularPaginas(historia);
+        });
+
+        document.getElementById('add-book-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const livro = {
+                titulo: document.getElementById('titulo').value,
+                autor: document.getElementById('autor').value,
+                descricao: document.getElementById('descricao').value,
+                imagem: document.getElementById('imagem').value,
+                historia: document.getElementById('historia').value,
+                anoPublicacao: document.getElementById('anoPublicacao').value,
+                genero: document.getElementById('genero').value,
+                editora: document.getElementById('editora').value,
+                pagina: document.getElementById('pagina').value,
+                avaliacao: document.getElementById('avaliacao').value,
+                tags: document.getElementById('tags').value,
+            };
+
+            fetch('/data/livros.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(livro),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao adicionar livro');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('success-message').innerText = data.message || 'Livro adicionado com sucesso!';
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('add-book-form').reset();
+                document.getElementById('pagina').value = ''; // Limpa o campo de número de páginas
+            })
+            .catch(error => {
+                console.error('Erro ao adicionar livro:', error);
+                document.getElementById('error-message').innerText = 'Erro ao adicionar livro. Tente novamente.';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+            });
+        });
+
+        document.getElementById('cancel-button').addEventListener('click', () => {
+            if (confirm('Tem certeza de que deseja cancelar? Todos os dados não salvos serão perdidos.')) {
+                document.getElementById('add-book-form').reset();
+                document.getElementById('pagina').value = '';
+                document.getElementById('success-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'none';
+            }
+        });
+    </script>
+
+<button href="#" onclick="history.back(); return false;" class="button">Voltar</button>
+</body>
+</html>
