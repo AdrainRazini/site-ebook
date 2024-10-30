@@ -1,0 +1,79 @@
+/* Estilos Gerais */
+
+@media (max-width: 768px) {
+    .book-card {
+        width: 100%; /* Largura completa em dispositivos móveis */
+        max-width: 300px; /* Largura máxima para evitar excesso de largura */
+    }
+
+    #mobile-menu {
+        width: 100%; /* O menu móvel ocupa toda a largura em dispositivos pequenos */
+    }
+
+    header {
+        flex-direction: column; /* Alinha itens do cabeçalho em coluna */
+    }
+}
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        flex-direction: column; /* Alinha itens do cabeçalho em coluna */
+        padding: 15px; /* Ajusta o padding para melhor visualização */
+    }
+
+    /* Menu móvel */
+    #menu-toggle {
+        font-size: 28px; /* Aumenta o tamanho do botão do menu */
+    }
+
+    #mobile-menu {
+        width: 100%; /* O menu ocupa toda a largura em dispositivos pequenos */
+        position: absolute; /* Posiciona o menu de forma absoluta */
+        top: 60px; /* Abaixo do cabeçalho */
+        right: 0;
+    }
+
+    /* Cards dos Livros */
+    .book-card {
+        width: 100%; /* Largura completa em dispositivos móveis */
+        max-width: 100%; /* Removido max-width para ocupar 100% */
+        margin: 10px 0; /* Espaçamento vertical entre os cards */
+    }
+
+    /* Títulos dos Livros */
+    .book-card h2 {
+        font-size: 16px; /* Reduz o tamanho da fonte para títulos */
+    }
+
+    /* Botões */
+    .book-card button {
+        width: 100%; /* Botão ocupa toda a largura do card */
+        padding: 12px; /* Aumenta o padding para melhorar a usabilidade */
+    }
+
+    /* Ajustes no Main */
+    main {
+        padding: 10px; /* Reduz o padding geral em dispositivos pequenos */
+    }
+}
+
+/* Ajustes para tablets e telas médias */
+@media (max-width: 1024px) {
+    /* Ajustes para cards */
+    .book-card {
+        width: 45%; /* Ajusta a largura para que 2 cards fiquem lado a lado */
+        margin: 10px; /* Margem entre os cards */
+    }
+
+    /* Ajustes no Header */
+    header {
+        padding: 15px; /* Mantém um padding confortável */
+    }
+
+    /* Menu */
+    #mobile-menu {
+        width: auto; /* Permite que o menu utilize largura automática */
+        top: 60px; /* Mantém a posição abaixo do cabeçalho */
+    }
+}
