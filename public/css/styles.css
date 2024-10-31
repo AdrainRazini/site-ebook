@@ -1,0 +1,306 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#books-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.book-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.book-card button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.book-card button:hover {
+    background-color: #45a049;
+}
+.story-pages {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Altura fixa para as páginas */
+    overflow: hidden;
+}
+
+.page {
+    display: none; /* Esconder todas as páginas inicialmente */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 5px;
+    height: 100%; /* Garantir que a altura se ajuste */
+}
+
+.page.active {
+    display: block; /* Mostrar apenas a página ativa */
+}
+#books-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.book {
+    position: relative;
+    width: 250px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.book img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.book-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o título */
+    color: white;
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro com opacidade */
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.book .btn {
+    position: absolute;
+    bottom: 10px; /* Botão posicionado na parte inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6200ea;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.book:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.book .btn:hover {
+    background-color: #5a00d1;
+}
+
+/* Estilo geral do botão */
+.btn {
+    display: inline-block; /* Para garantir que o botão se comporte corretamente */
+    padding: 10px 20px; /* Espaçamento interno */
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+}
+
+/* Efeito de hover */
+.btn:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Leve movimento para cima */
+}
+
+/* Efeito de foco (opcional) */
+.btn:focus {
+    outline: none; /* Remove a borda padrão ao focar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra ao focar */
+}
+
+/* Adicionando ícone ao botão (opcional) */
+.btn::before {
+    content: "📖"; /* Emoji de livro, pode ser substituído por um ícone de fonte, como Font Awesome */
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+@media (max-width: 768px) {
+    .book {
+        width: 100%; /* Largura completa em dispositivos móveis */
+        max-width: 300px; /* Largura máxima para evitar excesso de largura */
+    }
+}
+
+
+/* Estilos do cabeçalho e do menu */
+header {
+    background-color: #00000062;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+nav {
+    display: flex; /* Mantenha o menu visível em telas grandes */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos para o menu móvel */
+.hidden {
+    display: none;
+}
+
+#mobile-menu {
+  
+    position: absolute;
+    top: 60px; /* Abaixo do cabeçalho */
+    right: 1;
+    background-color: #000000da;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    border: solid rgb(255, 255, 255) 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+#mobile-menu ul {
+    flex-direction: column; /* Coluna para o menu móvel */
+}
+
+#mobile-menu li {
+    margin: 0; /* Remove margem nos itens do menu móvel */
+}
+
+/* Media Queries para dispositivos móveis */
+
+ /* Botão do Menu */
+ #menu-toggle, #close-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.icone {
+    width: 30px;
+    height: 30px;
+}
+
+/* Menu Mobile - Ocupa metade da tela */
+#mobile-menu {
+    display: none;
+    flex-direction: column;
+  
+    position: fixed;
+    top: 0;
+    right: 1;
+    width: 25%;
+    height: 100vh;
+    padding: 2rem;
+    color: #fff;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+}
+
+#mobile-menu.show {
+    display: flex;
+    transform: translateX(0);
+}
+
+#mobile-menu ul {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+#mobile-menu li {
+    margin: 1rem 0;
+}
+
+#mobile-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Botão Fechar no Menu */
+#close-menu {
+    align-self: flex-end;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Informações adicionais no menu */
+#mobile-menu .menu-info {
+    margin-top: 2rem;
+    padding: 1rem;
+ 
+    border-radius: 8px;
+}
