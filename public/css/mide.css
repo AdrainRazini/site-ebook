@@ -1,0 +1,136 @@
+/* Estilos Gerais */
+
+@media (max-width: 768px) {
+    .book-card {
+        width: 100%; /* Largura completa em dispositivos móveis */
+        max-width: 300px; /* Largura máxima para evitar excesso de largura */
+    }
+
+  
+
+   
+}
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        z-index: 10;
+        padding: 15px; /* Ajusta o padding para melhor visualização */
+    }
+
+    /* Menu móvel */
+    #menu-toggle {
+        font-size: 28px; /* Aumenta o tamanho do botão do menu */
+    }
+
+   
+    #mobile-menu {
+        display: none;
+        flex-direction: column;
+      text-align: center;
+        position: fixed;
+        top: 0;
+        right: 1;
+        width: 20px;
+        height: auto;
+        padding: 2rem;
+        color: #000000;
+        background-color: rgba(58, 58, 58, 0.473);
+        border: solid black 2px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 10;
+      border-radius: 10px 20px;
+    }
+    /* Cards dos Livros */
+    .book-card {
+        width: 100%; /* Largura completa em dispositivos móveis */
+        max-width: 100%; /* Removido max-width para ocupar 100% */
+        margin: 10px 0; /* Espaçamento vertical entre os cards */
+    }
+
+    /* Títulos dos Livros */
+    .book-card h2 {
+        font-size: 16px; /* Reduz o tamanho da fonte para títulos */
+    }
+
+    /* Botões */
+    .book-card button {
+        width: 100%; /* Botão ocupa toda a largura do card */
+        padding: 12px; /* Aumenta o padding para melhorar a usabilidade */
+    }
+
+    /* Ajustes no Main */
+    main {
+        padding: 10px; /* Reduz o padding geral em dispositivos pequenos */
+    }
+}
+
+/* Ajustes para tablets e telas médias */
+@media (max-width: 1024px) {
+    /* Ajustes para cards */
+    .book-card {
+        width: 45%; /* Ajusta a largura para que 2 cards fiquem lado a lado */
+        margin: 10px; /* Margem entre os cards */
+    }
+
+    /* Ajustes no Header */
+    header {
+        padding: 15px; /* Mantém um padding confortável */
+    }
+
+ 
+}
+
+
+
+/* Ocultar as imagens no desktop */
+.menu-icon {
+    display: none; /* Ocultar imagem por padrão */
+}
+
+/* Mostrar o texto e a imagem no mobile */
+@media (max-width: 768px) {
+    .menu-text {
+        display: none; /* Ocultar texto no mobile */
+    }
+
+    .menu-icon {
+        display: block; /* Mostrar imagem no mobile */
+        width: 24px; /* Defina o tamanho da imagem conforme necessário */
+        height: auto; /* Manter proporção da imagem */
+    }
+    .book  {
+        max-width: 100px;
+        max-height: 200px;
+    }
+    .book-title {
+        width: auto;
+        height: auto;
+        font-size: 8px;
+    }
+    .book-title {
+        width: auto;
+        height: auto;
+
+    }
+
+.bnt{
+    position: absolute;
+}
+
+
+}
+
+/* Mostrar o texto no desktop */
+@media (min-width: 769px) {
+    .menu-text {
+        display: inline; /* Mostrar texto no desktop */
+    }
+
+    .menu-icon {
+        display: none; /* Ocultar imagem no desktop */
+    }
+
+    
+}
