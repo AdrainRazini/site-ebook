@@ -1,0 +1,23 @@
+/* public/style.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  #login-page, #chat-page {
+    text-align: center;
+  }
+  
+  #chat-box {
+    border: 1px solid #ccc;
+    width: 80%;
+    height: 300px;
+    overflow-y: auto;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  

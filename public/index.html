@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de eBooks</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mide.css">
+</head>
+<style>
+    h6 {
+        text-align: center;
+    }
+    
+    .destaque-livro {
+        display: flex; /* Adiciona flexbox */
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente, se necessário */
+        border: 2px solid #f0f0f0;
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+    
+    .destaque-livro .book img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .hidden {
+        opacity: 0;
+    }
+    </style>
+    
+<body>
+    <header>
+        <h1>Biblioteca de eBooks</h1>
+        <button id="menu-toggle" aria-label="Abrir menu"><img class="icone" src="/icons/iconemenu.png" alt="Ícone do menu"></button>
+        <nav id="mobile-menu">
+            <button id="close-menu" aria-label="Fechar menu">✖</button>
+            <ul>
+                <li><a href="#"><img class="menu-icon" src="icons/usericon.png" alt="Usuário em estudo"></a></li>
+                <li><a href="admim.html"><img class="menu-icon" src="icons/infon.png" alt="Admim"></a></li>
+                <li><a href="#"><img class="menu-icon" src="icons/editicon.png" alt="Editora"></a></li>
+                <li><a href="add-book.html"><img class="menu-icon" src="icons/addicon.png" alt="Adicionar"></a></li>
+                <li><a href="chat.html"><img class="menu-icon" src="icons/Chaticon.png" alt="Chat"></a></li>
+            </ul> <div class="menu-info"> <span class="menu-text"><h2>Informações do Usuário</h2> <p>Nome: Usuário Teste</p> <p>E-mail: usuario@teste.com</p></span> </div> <ul> <li><a href="#"><span class="menu-text"> Usuário em estudo</span></a></li> <li><a href="admim.html"><span class="menu-text">Administrador</span></a></li> <li><a href="#"><span class="menu-text">Editora</ span></a></li> <li><a href="add-book.html"><span class="menu-text">Adicionar</span></a></li> <li ><a href="chat.html"><span class="menu-text">bate-papo</span></a></li> </ul> </nav>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Buscar por título ou autor..." required>
+            <button type="submit">Buscar</button>
+        </form>
+    </header>
+
+    <main>
+        <h2>Livros Em Destaque</h2>
+        <div id="destaque-livro" class="destaque-livro"></div>
+        
+        <h2 id="books-title" class="visually-hidden">Lista de Livros</h2>
+        <section id="books-list" aria-labelledby="books-title"></section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Projeto eBook. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let livros = [];
+            const booksList = document.getElementById('books-list');
+            const destaqueDiv = document.getElementById('destaque-livro');
+            let melhoresLivros = [];
+
+            async function loadBooks() {
+                try {
+                    const response = await fetch('/data/livros.json');
+                    if (!response.ok) throw new Error('Erro ao buscar livros.');
+                    livros = await response.json();
+                    melhoresLivros = livros.filter(livro => livro.avaliacao >= 4.5);
+                    displayDestaqueLivro(melhoresLivros);
+                    setInterval(() => displayDestaqueLivro(melhoresLivros), 5000);
+                } catch (error) {
+                    booksList.innerHTML = '<p>Erro ao carregar os livros. Tente novamente mais tarde.</p>';
+                    console.error('Erro ao carregar os livros:', error);
+                }
+            }
+
+            function displayDestaqueLivro(livros) {
+                if (livros.length === 0) {
+                    destaqueDiv.innerHTML = '<p>Nenhum livro em destaque.</p>';
+                    return;
+                }
+                const livroDestaque = livros[Math.floor(Math.random() * livros.length)];
+                destaqueDiv.innerHTML = `
+                    <div class="book" onclick="window.location.href='livros.html?id=${livroDestaque.id}'" style="cursor: pointer;">
+                        <img src="${livroDestaque.imagem}" alt="${livroDestaque.titulo}">
+                        <div class="book-title">${livroDestaque.titulo}</div>
+                        <p>Autor: ${livroDestaque.autor}</p>
+                        <p>Avaliação: ${livroDestaque.avaliacao}</p>
+                        <p>${livroDestaque.descricao}</p>
+                    </div>
+                `;
+            }
+
+            loadBooks();
+        });
+    </script>
+    
+    <script src="js/app.js" defer></script>
+</body>
+</html>
