@@ -1,8 +1,7 @@
 const express = require('express');
+const axios = require('axios');
 const http = require('http');
 const socketIo = require('socket.io');
-const fs = require('fs');
-const path = require('path');
 const cors = require('cors');
 
 const app = express();
@@ -10,40 +9,58 @@ const server = http.createServer(app);
 const io = socketIo(server);
 const PORT = process.env.PORT || 3000;
 
-const livrosPath = path.join(__dirname, 'data/livros.json');
+const JSON_BIN_ID = '67266d8ae41b4d34e44d2cb4';
+const JSON_BIN_API_KEY = '$2a$10$OfR0ONHrpfIYEftgs1xhne033N7n/tnO7MTYBoyU8K.sy135ST75i';
 
-const users = {}; // Armazena usuários logados
+const apiUrl = `https://api.jsonbin.io/v3/b/${JSON_BIN_ID}`;
 
 // Middleware
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
-// Função auxiliar para ler o arquivo de livros
-const lerLivros = () => JSON.parse(fs.readFileSync(livrosPath, 'utf-8'));
+// Função auxiliar para obter livros
+const lerLivros = async () => {
+  try {
+    const response = await axios.get(apiUrl, {
+      headers: { 'X-Master-Key': JSON_BIN_API_KEY }
+    });
+    return response.data.record;
+  } catch (error) {
+    console.error('Erro ao ler os livros:', error);
+    throw error;
+  }
+};
 
-// Função auxiliar para salvar os livros
-const salvarLivros = (livros) => fs.writeFileSync(livrosPath, JSON.stringify(livros, null, 2));
-
-// Rota principal
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
-});
+// Função auxiliar para salvar livros
+const salvarLivros = async (livros) => {
+  try {
+    await axios.put(apiUrl, livros, {
+      headers: {
+        'X-Master-Key': JSON_BIN_API_KEY,
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    console.error('Erro ao salvar os livros:', error);
+    throw error;
+  }
+};
 
 // Rota para obter os livros
-app.get('/data/livros.json', (req, res) => {
+app.get('/data/livros.json', async (req, res) => {
   try {
-    const livros = lerLivros();
+    const livros = await lerLivros();
     res.json(livros);
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao ler o arquivo de livros.' });
+    res.status(500).json({ message: 'Erro ao obter livros.' });
   }
 });
 
 // Rota para adicionar um novo livro
-app.post('/data/livros.json', (req, res) => {
+app.post('/data/livros.json', async (req, res) => {
   try {
-    const livros = lerLivros();
+    const livros = await lerLivros();
     const novoLivro = {
       id: Date.now().toString(),
       titulo: req.body.titulo,
@@ -61,7 +78,7 @@ app.post('/data/livros.json', (req, res) => {
     };
 
     livros.push(novoLivro);
-    salvarLivros(livros);
+    await salvarLivros(livros);
     res.json({ message: 'Livro adicionado com sucesso!' });
   } catch (error) {
     res.status(500).json({ message: 'Erro ao adicionar o livro.' });
@@ -69,92 +86,21 @@ app.post('/data/livros.json', (req, res) => {
 });
 
 // Rota para deletar um livro
-app.delete('/data/livros.json', (req, res) => {
+app.delete('/data/livros.json', async (req, res) => {
   const livroId = req.query.id;
   try {
-    const livros = lerLivros();
+    const livros = await lerLivros();
     const livrosAtualizados = livros.filter(livro => livro.id !== livroId);
 
     if (livros.length === livrosAtualizados.length) {
       return res.status(404).json({ message: 'Livro não encontrado.' });
     }
 
-    salvarLivros(livrosAtualizados);
+    await salvarLivros(livrosAtualizados);
     res.json({ message: 'Livro deletado com sucesso!' });
   } catch (error) {
     res.status(500).json({ message: 'Erro ao deletar o livro.' });
   }
-});
-
-// Rota para obter partes da história do livro
-app.get('/data/livros/:id/historia', (req, res) => {
-  const livroId = req.params.id;
-  const pagina = parseInt(req.query.pagina, 10) || 0;
-
-  try {
-    const livros = lerLivros();
-    const livro = livros.find(l => l.id == livroId);
-
-    if (livro) {
-      const partesHistoria = livro.historia;
-      const partesPorPagina = 5;
-      const inicio = pagina * partesPorPagina;
-      const fim = inicio + partesPorPagina;
-
-      res.json({
-        historia: partesHistoria.slice(inicio, fim),
-        paginaAtual: pagina,
-        totalPaginas: Math.ceil(partesHistoria.length / partesPorPagina)
-      });
-    } else {
-      res.status(404).json({ message: 'Livro não encontrado.' });
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Erro ao ler a história do livro.' });
-  }
-});
-
-// Rota para editar um livro existente
-app.put('/data/livros/:id', (req, res) => {
-  const livroId = req.params.id;
-
-  try {
-    const livros = lerLivros();
-    const index = livros.findIndex(livro => livro.id === livroId);
-
-    if (index !== -1) {
-      livros[index] = { ...livros[index], ...req.body };
-      salvarLivros(livros);
-      res.json({ message: 'Livro atualizado com sucesso!' });
-    } else {
-      res.status(404).json({ message: 'Livro não encontrado.' });
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Erro ao editar o livro.' });
-  }
-});
-
-// Evento de conexão do Socket.IO
-io.on('connection', (socket) => {
-  // Adiciona o usuário quando ele entra no chat
-  socket.on('login', (username) => {
-    users[socket.id] = username;
-    socket.emit('loginSuccess', username);
-    io.emit('userConnected', username);
-  });
-
-  // Lida com mensagens de chat
-  socket.on('chatMessage', (msg) => {
-    const username = users[socket.id];
-    io.emit('message', { user: username, text: msg });
-  });
-
-  // Remove o usuário quando ele desconecta
-  socket.on('disconnect', () => {
-    const username = users[socket.id];
-    delete users[socket.id];
-    io.emit('userDisconnected', username);
-  });
 });
 
 // Inicia o servidor
